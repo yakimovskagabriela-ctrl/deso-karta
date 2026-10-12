@@ -100,7 +100,7 @@ if (typeof L === 'undefined') {
 
   async function loadLayer(key) {
     try {
-      const response = await fetch(key === 'kommuner' ? 'kommuner.geojson' : 'deso.geojson');
+      const response = await fetch(key === 'kommuner' ? 'Kommuner.geojson' : 'deso.geojson');
       if (!response.ok) throw new Error('Data saknas');
       const data = await response.json();
       layers[key].count = data.features.length;
