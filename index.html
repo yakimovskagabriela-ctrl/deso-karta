@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Utforska Sveriges kommuner och SCB:s DeSO-områden 2025 på en interaktiv karta.">
+  <title>Kommuner 2025 · Sverigekartan</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230c514d'/%3E%3Cpath d='m8 8 8 4 8-4v16l-8 4-8-4z' fill='none' stroke='%23f4d68b' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header><div class="brand"><span class="mark" aria-hidden="true">◈</span><div><h1>Kommuner <span>2025</span></h1><p>Sveriges kommuner och DeSO-områden</p></div></div><a href="https://www.scb.se/vara-tjanster/oppna-data/oppna-geodata/demografiska-statistikomraden-deso/" target="_blank" rel="noopener">Källa: SCB ↗</a></header>
+  <main>
+    <aside>
+      <div class="eyebrow">UTFORSKA SVERIGE</div>
+      <h2>Sveriges kommuner.</h2>
+      <p class="intro">Klicka på en kommun för att se dess namn och befolkning den 31 augusti 2026. Byt lager för att utforska enskilda DeSO-områden.</p>
+      <fieldset class="layer-picker">
+        <legend>Kartlager</legend>
+        <label><input type="radio" name="map-layer" value="kommuner" checked disabled><span>Kommuner</span><small id="kommuner-count">Läser in…</small></label>
+        <label><input type="radio" name="map-layer" value="deso" disabled><span>DeSO-områden</span><small id="deso-count">Läser in…</small></label>
+      </fieldset>
+      <div class="status" id="status" role="status">Läser in kommuner…</div>
+      <section class="detail" aria-labelledby="detail-title"><h3 id="detail-title">Vald kommun</h3><div id="details"><p>Klicka på kartan för att välja en kommun.</p></div></section>
+      <section class="legend" id="kommun-legend"><h3>Kommungränser</h3><p><i style="--color:#408575"></i>DeSO-områden sammanslagna per kommun</p></section>
+      <section class="legend" id="deso-legend" hidden><h3>Områdestyper</h3><p><i style="--color:#bf9d55"></i>A · Utanför större befolkningskoncentrationer</p><p><i style="--color:#528faf"></i>B · Tätort utanför kommunens centralort</p><p><i style="--color:#408575"></i>C · Främst i kommunens centralort</p></section>
+      <p class="note">Gränser: DeSO 2025_v2, 1 januari 2025, förenklade för visning. Befolkning: SCB, 31 augusti 2026, kommunindelning 2026. Kopplingen använder kommunkod; gränsändringar mellan åren har inte analyserats. Statistiken gäller hela kommunen, inte enskilda DeSO-områden. SCB:s röjandeskydd kan göra att kvinnor och män inte summerar exakt till folkmängden.</p>
+    </aside>
+    <div class="map-wrap"><div id="map" aria-label="Interaktiv karta över Sveriges kommuner och DeSO-områden"></div><button id="reset" type="button">Visa hela Sverige</button><div class="map-note" id="map-note">Kommuner · 2025</div></div>
+  </main>
+  <noscript>Aktivera JavaScript för att använda kartan.</noscript>
+</body>
+</html>
