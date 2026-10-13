@@ -22,15 +22,28 @@
         <legend>Kartlager</legend>
         <label><input type="radio" name="map-layer" value="kommuner" checked disabled><span>Kommuner</span><small id="kommuner-count">Läser in…</small></label>
         <label><input type="radio" name="map-layer" value="deso" disabled><span>DeSO-områden</span><small id="deso-count">Läser in…</small></label>
+        <label><input type="radio" name="map-layer" value="rutor" disabled><span>Kilometerrutor – Uppsala</span><small id="rutor-count">Läser in…</small></label>
       </fieldset>
+      <button id="compare-open" class="view-button" type="button" disabled>Jämför kartor</button>
+      <p id="compare-status" role="status">Jämförelsen blir tillgänglig när DeSO och rutorna har laddats.</p>
       <div class="status" id="status" role="status">Läser in kommuner…</div>
       <section class="detail" aria-labelledby="detail-title"><h3 id="detail-title">Vald kommun</h3><div id="details"><p>Klicka på kartan för att välja en kommun.</p></div></section>
       <section class="legend" id="kommun-legend"><h3>Kommungränser</h3><p><i style="--color:#408575"></i>DeSO-områden sammanslagna per kommun</p></section>
       <section class="legend" id="deso-legend" hidden><h3>Områdestyper</h3><p><i style="--color:#bf9d55"></i>A · Utanför större befolkningskoncentrationer</p><p><i style="--color:#528faf"></i>B · Tätort utanför kommunens centralort</p><p><i style="--color:#408575"></i>C · Främst i kommunens centralort</p></section>
+      <section class="legend" id="rutor-legend" hidden><h3>Invånare per hel kilometerruta</h3><p><i style="--color:#eff3ff"></i>0</p><p><i style="--color:#c6dbef"></i>1–9</p><p><i style="--color:#9ecae1"></i>10–49</p><p><i style="--color:#6baed6"></i>50–199</p><p><i style="--color:#3182bd"></i>200–999</p><p><i style="--color:#08519c"></i>1 000 eller fler</p><p>Fasta klassgränser, inklusive ändpunkterna. Mörkare färg betyder fler invånare.</p><p>Källa: SCB, 2025-12-31. Hela rutor som överlappar Uppsala visas, utan klippning eller areaviktning. Urvalets kommungräns är härledd från DeSO 2025_v2, 2025-01-01.</p><p class="boundary-warning">Gränsrutornas befolkning gäller hela rutan och kan inte tilldelas enbart Uppsala kommun. Rutlagrets summa är inte kommunens folkmängd.</p></section>
       <p class="note">Gränser: DeSO 2025_v2, 1 januari 2025, förenklade för visning. Befolkning: SCB, 31 augusti 2026, kommunindelning 2026. Kopplingen använder kommunkod; gränsändringar mellan åren har inte analyserats. Statistiken gäller hela kommunen, inte enskilda DeSO-områden. SCB:s röjandeskydd kan göra att kvinnor och män inte summerar exakt till folkmängden.</p>
     </aside>
     <div class="map-wrap"><div id="map" aria-label="Interaktiv karta över Sveriges kommuner och DeSO-områden"></div><button id="reset" type="button">Visa hela Sverige</button><div class="map-note" id="map-note">Kommuner · 2025</div></div>
   </main>
+  <section id="comparison" hidden aria-labelledby="comparison-title">
+    <div class="comparison-heading"><h2 id="comparison-title" tabindex="-1">Jämför kartor – Uppsala</h2><button id="compare-close" class="view-button" type="button">Tillbaka till vanliga kartan</button></div>
+    <p>Vänster karta visar DeSO-områdestyper, inte befolkningstäthet. DeSO-lagret innehåller inga befolkningsvärden per område. Höger karta visar invånare per hel kilometerruta, SCB 2025-12-31.</p>
+    <div class="comparison-grid">
+      <article><h3>DeSO-områden i Uppsala</h3><div class="comparison-map" id="compare-deso" aria-label="DeSO-karta för Uppsala"></div><div id="compare-deso-legend"></div><section class="detail"><h3>Valt DeSO-område</h3><div id="compare-deso-details">Klicka på ett DeSO-område.</div></section></article>
+      <article><h3>Kilometerrutor – Uppsala</h3><div class="comparison-map" id="compare-rutor" aria-label="Befolkningsrutor för Uppsala"></div><div id="compare-rutor-legend"></div><section class="detail"><h3>Vald kilometerruta</h3><div id="compare-rutor-details">Klicka på en kilometerruta.</div></section></article>
+    </div>
+    <p>DeSO: SCB 2025_v2, gränsdatum 2025-01-01, förenklade för visning. Befolkningsrutorna har inte klippts eller areaviktats. Kartorna visar samma utsnitt; zoom och förflyttning synkroniseras åt båda håll.</p>
+  </section>
   <noscript>Aktivera JavaScript för att använda kartan.</noscript>
 </body>
 </html>
